@@ -22,7 +22,10 @@ impl MineSweeper {
                 let mut mines: Vec<Position> = Vec::new();
 
                 while mines.len() < mine_count{
-                    mines.push((random_number(width), random_number(height)));
+                    let new_mine = (random_number(width), random_number(height));
+                    if !mines.contains(&new_mine) {
+                        mines.push((random_number(width), random_number(height)));
+                    }
                 }
                 mines
             },
